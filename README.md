@@ -18,4 +18,4 @@ cd task-management-project/dotnet-backend
 dotnet run --project Backend/backend.csproj --urls "https://localhost:7071;http://localhost:5097"
 ```
 
-![image info](https://github.com/kudane/task-management-project/blob/main/documaentation/ER.JPG)
+![image info](https://github.com/kudane/task-management-project/blob/main/documentation/ER.JPG)
