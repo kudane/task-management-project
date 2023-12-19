@@ -11,4 +11,5 @@ export const appConfig: ApplicationConfig = {
   ]
 };
 
-export const apiEndpoint = "https://localhost:7071";
+export const apiEndpoint = "https://localhost:7071";      // dotnet
+// export const apiEndpoint = "http://127.0.0.1:3000";    // go fiber
