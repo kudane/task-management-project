@@ -32,12 +32,12 @@ public class ListTask
 
             if (command.TypeId.HasValue && command.TypeId.Value != 0)
             {
-                query = query.Where(a => a.FkTypeId == command.TypeId.Value);
+                query = query.Where(a => a.TypeId == command.TypeId.Value);
             }
 
             if (command.PriorityId.HasValue && command.PriorityId.Value != 0)
             {
-                query = query.Where(a => a.FkPriorityId == command.PriorityId.Value);
+                query = query.Where(a => a.PriorityId == command.PriorityId.Value);
             }
 
             return new Response() { Items = query };

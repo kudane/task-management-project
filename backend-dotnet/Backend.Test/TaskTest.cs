@@ -24,7 +24,7 @@ namespace Backend.Test
                 context.Tasks.RemoveRange(context.Tasks.ToList());
                 context.SaveChanges();
     
-                context.Tasks.Add(new Task() { Name = "Mock", Description = "Mock", FkPriorityId = 1, FkTypeId = 1 });
+                context.Tasks.Add(new Task() { Name = "Mock", Description = "Mock", PriorityId = 1, TypeId = 1 });
                 context.SaveChanges();
                 var command = new ListTask.Command() { PriorityId = null, TypeId = null };
                 var service = new ListTask.Handler(context);
@@ -50,7 +50,7 @@ namespace Backend.Test
                 context.Tasks.RemoveRange(context.Tasks.ToList());
                 context.SaveChanges();
 
-                context.Tasks.Add(new Task() { Name = "Mock", Description = "Mock", FkPriorityId = 1, FkTypeId = 1 });
+                context.Tasks.Add(new Task() { Name = "Mock", Description = "Mock", PriorityId = 1, TypeId = 1 });
                 context.SaveChanges();
                 var mockId = context.Tasks.First(a => a.Name == "Mock").Id;
 
@@ -74,7 +74,7 @@ namespace Backend.Test
                 context.Tasks.RemoveRange(context.Tasks.ToList());
                 context.SaveChanges();
 
-                context.Tasks.Add(new Task() { Name = "Mock", Description = "Mock", FkPriorityId = 1, FkTypeId = 1 });
+                context.Tasks.Add(new Task() { Name = "Mock", Description = "Mock", PriorityId = 1, TypeId = 1 });
                 context.SaveChanges();
                 var mockId = context.Tasks.First(a => a.Name == "Mock").Id;
 
