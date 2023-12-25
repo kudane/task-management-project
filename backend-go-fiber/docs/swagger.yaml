@@ -1,4 +1,97 @@
+definitions:
+  data.Priority:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  data.Task:
+    properties:
+      description:
+        type: string
+      dueDate:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      priorityId:
+        type: integer
+      startDate:
+        type: string
+      typeId:
+        type: integer
+    type: object
+  data.Type:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
 info:
   contact: {}
-paths: {}
+paths:
+  /delete/task/:taskId:
+    put:
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/data.Task'
+            type: array
+  /edit/task:
+    put:
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/data.Task'
+            type: array
+  /list/priority:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/data.Priority'
+            type: array
+  /list/task:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/data.Task'
+            type: array
+  /list/task/:taskId:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/data.Task'
+  /list/type:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/data.Type'
+            type: array
+  /new/task:
+    post:
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/data.Task'
+            type: array
 swagger: "2.0"

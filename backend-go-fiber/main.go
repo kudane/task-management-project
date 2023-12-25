@@ -12,15 +12,23 @@ import (
 )
 
 func main() {
-	host := fiber.New()
-	host.Get("/swagger/*", swagger.HandlerDefault)
-	host.Use(cors.New(cors.Config{
-		AllowOrigins: "*",
-		AllowHeaders: "Origin, Content-Type, Accept",
-		AllowMethods: "GET,POST,PUT,DELETE",
-	}))
 	db := data.New()
+
+	host := fiber.New()
+	{
+		host.Get("/docs/*", swagger.HandlerDefault)
+
+		host.Use(cors.New(cors.Config{
+			AllowOrigins: "*",
+			AllowHeaders: "Origin, Content-Type, Accept",
+			AllowMethods: "GET,POST,PUT,DELETE",
+		}))
+	}
+
 	service := service.New(db)
-	service.Registor(host)
+	{
+		service.Registor(host)
+	}
+
 	host.Listen(":3000")
 }
