@@ -23,8 +23,8 @@ type Task struct {
 	Description string    `json:"description"`
 	StartDate   time.Time `json:"startDate"`
 	DueDate     time.Time `json:"dueDate"`
-	// PriorityID  uint
-	// TypeID      uint
+	PriorityID  uint      `json:"priorityId"`
+	TypeID      uint      `json:"typeId"`
 }
 
 func New() *gorm.DB {
@@ -44,8 +44,17 @@ func New() *gorm.DB {
 		Description: "job a",
 		StartDate:   time.Now(),
 		DueDate:     time.Now(),
-		// PriorityID:  1,
-		// TypeID:      1,
+		PriorityID:  1,
+		TypeID:      1,
+	})
+	db.Create(&Task{
+		ID:          2,
+		Name:        "Medium",
+		Description: "job b",
+		StartDate:   time.Now(),
+		DueDate:     time.Now(),
+		PriorityID:  2,
+		TypeID:      2,
 	})
 	return db
 }

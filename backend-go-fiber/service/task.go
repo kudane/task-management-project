@@ -18,7 +18,14 @@ func (s *Service) ByIdTask(f *fiber.Ctx) error {
 
 func (s *Service) ListTask(f *fiber.Ctx) error {
 	var results []data.Task
-	if err := s.db.Find(&results); err.Error != nil {
+	query := s.db.Model(&results)
+	if q := f.QueryInt("type"); q != 0 {
+		query = query.Where(&data.Task{TypeID: uint(q)})
+	}
+	if q := f.QueryInt("priority"); q != 0 {
+		query = query.Where(&data.Task{PriorityID: uint(q)})
+	}
+	if err := query.Find(&results); err.Error != nil {
 		return f.Status(http.StatusBadRequest).SendString(err.Error.Error())
 	}
 	response := fiber.Map{"items": results}
