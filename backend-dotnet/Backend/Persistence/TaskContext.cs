@@ -59,11 +59,14 @@ public partial class TaskContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.StartDate);
 
-            entity.HasOne(d => d.FkPriority).WithMany(p => p.Tasks)
-                .HasForeignKey(d => d.FkPriorityId);
+            entity.HasOne(e => e.Type)
+                .WithMany(e => e.Tasks)
+                .HasForeignKey(e => e.TypeId)
+                .IsRequired();
 
-            entity.HasOne(d => d.FkType).WithMany(p => p.Tasks)
-                .HasForeignKey(d => d.FkTypeId);
+            entity.HasOne(e => e.Priority)
+                .WithMany(e => e.Tasks)
+                .HasForeignKey(e => e.PriorityId);
 
             entity.HasData(
                new Task
@@ -73,8 +76,8 @@ public partial class TaskContext : DbContext
                    Description = "job a",
                    StartDate = DateTime.UtcNow,
                    DueDate = DateTime.UtcNow,
-                   FkPriorityId = 1,
-                   FkTypeId = 1,
+                   PriorityId = 1,
+                   TypeId = 1,
                });
         });
     }
