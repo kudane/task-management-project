@@ -35,8 +35,8 @@ public class NewTask
             {
                Name = command.Name,
                Description = command.Description,
-               FkPriorityId = command.Priority,
-               FkTypeId = command.Type,
+               PriorityId = command.Priority,
+               TypeId = command.Type,
                StartDate = command.StartDate,
                DueDate = command.DueDate
             };

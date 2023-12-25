@@ -41,8 +41,8 @@ public class EditTask
 
             task.Name = command.Name;
             task.Description = command.Description;
-            task.FkPriorityId = command.Priority;
-            task.FkTypeId = command.Type;
+            task.PriorityId = command.Priority;
+            task.TypeId = command.Type;
             task.StartDate = command.StartDate;
             task.DueDate = command.DueDate;
 
