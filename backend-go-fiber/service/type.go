@@ -7,6 +7,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+// ListType godoc
+// @Success 200 {object} []data.Type
+// @Router /list/type [get]
 func (a *Service) ListType(f *fiber.Ctx) error {
 	var results []data.Type
 	err := a.db.Find(&results)

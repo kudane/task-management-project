@@ -7,6 +7,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+// ListPriorty godoc
+// @Success 200 {object} []data.Priority
+// @Router /list/priority [get]
 func (a *Service) ListPriorty(f *fiber.Ctx) error {
 	var results []data.Priority
 	err := a.db.Find(&results)
